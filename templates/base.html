@@ -1,6 +1,45 @@
 {% extends 'Calculator.html' %}
 {% block body %}
+<div>
 <label>{{ Summ }}</label>
+</div>
 <input type="text" name='textbox' value={{Summ}}>
 <input type="submit" value="send" />
+{% endblock %}
+
+{% block number %}
+
+<p>
+    <input type="submit" name = "numb"  value="1" />
+    <input type="submit" name = "numb"  value="2" />
+    <input type="submit" name = "numb" value="3" />
+</p>
+<p>
+<input type="submit" name = "numb" value="4" />
+<input type="submit" name = "numb"  value="5" />
+<input type="submit" name = "numb"  value="6" />
+</p>
+<p>
+<input type="submit" name = "numb" value="7" />
+<input type="submit" name = "numb"  value="8" />
+<input type="submit" name = "numb"  value="9" />
+
+</p>
+
+    <input type="submit" name = "numb" value="<-" />
+    <input type="submit" name = "numb" value="0" />
+    <input type="submit" name = "numb"  value="." />
+
+<p>
+
+<input type="submit" name = "numb"  value="C" />
+<input type="submit" name = "numb"  value="+" />
+<input type="submit" name = "numb"  value="-" />
+<input type="submit" name = "numb"  value="/" />
+<input type="submit" name = "numb" value="*" />
+
+
+</p>
+
+
 {% endblock %}

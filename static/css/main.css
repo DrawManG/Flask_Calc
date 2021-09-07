@@ -1,3 +1,50 @@
 body {
     background: gray;
 }
+
+input[type='submit'] {
+    background: -moz-linear-gradient(#fff,#ddd);
+    background: -webkit-gradient(linear,0 0,0 bottom, from(#fff),to(#ddd));
+    background: linear-gradient(#fff,#ddd);
+    -pie-background: linear-gradient(#fff,#ddd);
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    width: 80px;
+    height: 80px;
+    border: solid 1px #999;
+    padding:3px 5px;     
+    color: #333;
+    text-shadow: 0px 1px 1px white;
+}
+input[type='submit']:hover {
+    background: -moz-linear-gradient(#f1f1f1,#ddd);
+    background: -webkit-gradient(linear,0 0,0 bottom, from(#f1f1f1),to(#ddd));
+    background: linear-gradient(#f1f1f1,#ddd);
+    -pie-background: linear-gradient(#f1f1f1,#ddd);
+}
+input[type='submit']:active,input[type='button'].active {
+    background: -moz-linear-gradient(#ccc,#ddd);
+    background: -webkit-gradient(linear,0 0,0 bottom, from(#ccc),to(#ddd));
+    background: linear-gradient(#ccc,#ddd);
+    -pie-background: linear-gradient(#ccc,#ddd);
+    text-align:center;
+
+}
+input[type='submit'].default {
+    font-weight:bold;
+    width: 80px;
+    height: 80px;
+    -webkit-box-shadow: #ccc 0px 0px 3px;
+    -moz-box-shadow: #ccc 0px 0px 3px;
+    box-shadow: #ccc 0px 0px 3px;
+}
+input[type='submit'][disabled] {
+    color:#999;
+}
+input[type='submit'][disabled]:hover {
+    background: -moz-linear-gradient(#fff,#ddd);
+    background: -webkit-gradient(linear,0 0,0 bottom, from(#fff),to(#ddd));
+    background: linear-gradient(#fff,#ddd);
+    -pie-background: linear-gradient(#fff,#ddd);
+}
