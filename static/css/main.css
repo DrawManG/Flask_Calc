@@ -1,5 +1,8 @@
 body {
     background: gray;
+    align-content: center;
+    transform: translateX(25%);
+    padding: 5px 10px;
 }
 
 input[type='submit'] {

@@ -19,50 +19,41 @@ def main_menu():
 def calculator():
     return render_template('base.html', Summ = "")
 
-
-def clicked():
-
-  clicked = str(request.values.dicts[1]).split("'")[3]
-  print(clicked)
-  return render_template('base.html',Summ ="::::"+ clicked )
-
-
 @app.route('/base', methods = [ "POST"])
 def send():
     summ = 0
     textbox = request.form['textbox']
     try:
-
-      if str(request.values.dicts[1]['numb']):
-
+      if str(request.values.dicts[1]['numb']): 
         if str(request.values.dicts[1]['numb']) == "C":
-          return render_template('base.html',Summ = "" )
+            return render_template('base.html',Summ = "" )
         if str(request.values.dicts[1]['numb']) == "<-":
-          return render_template('base.html',Summ = textbox[:-1] )
-        return render_template('base.html',Summ = str(textbox) + str(request.values.dicts[1]).split("'")[7] )
+            return render_template('base.html',Summ = textbox[:-1] )
+        return render_template('base.html',Summ = str(textbox) + str(request.values.dicts[1]['numb']) )
+
+
     except: 
       pass
 
     try:
-      if not textbox.find("*") == -1:
+      print(textbox.find("*"))
+      if not textbox.find("*") == -1 and not textbox.find("*") <= 1:
         ID = textbox.split("*")
         len_max = len(ID)
         i = 0
-        print("ID ",ID)
         while i < len_max - 1:
             summ = float(ID[i]) * float(ID[i+1])
             round(summ,1)
             i+=1
-      if not textbox.find("+") == -1:
+      if not textbox.find("+") == -1 and not textbox.find("+") <= 1:
         ID = textbox.split("+")
         len_max = len(ID)
         i = 0
-        print("ID ",ID)
         while i < len_max:
             summ = float(summ) + float(ID[i])
             round(summ,1)
             i+=1
-      if not textbox.find("-") == -1:
+      if not textbox.find("-") == -1 and not textbox.find("-") <= 1:
         ID = textbox.split("-")
         len_max = len(ID)
         if ID[0] == '':
@@ -70,33 +61,22 @@ def send():
           del ID[0]
           len_max = len(ID)
         i = 0
-        print("ID ",ID)
         while i < len_max - 1:
             summ = float(ID[i]) - float(ID[i+1])
             round(summ,1)
             i+=1
-      if not textbox.find("/") == -1:
+      if not textbox.find("/") == -1 and not textbox.find("*") <= 1 or not textbox.find("\\") == -1 and not textbox.find("*") <= 1:
         ID = textbox.split("/")
         len_max = len(ID)
         i = 0
-        print("ID ",ID)
         while i < len_max - 1:
             summ = float(ID[i]) / float(ID[i+1])
             round(summ,2)
             i+=1
-      if not textbox.find("\\") == -1:
-        ID = textbox.split("\\")
-        len_max = len(ID)
-        i = 0
-        print("ID ",ID)
-        while i < len_max - 1:
-            summ = float(ID[i]) / float(ID[i+1])
-            round(summ,1)
-            i+=1
-    except:
-        summ = "ERROR"
-
-    return render_template('base.html',Summ = summ )
+    except:pass
+    if int(summ)==0:
+      return render_template('base.html',Summ = "")
+    return render_template('base.html',Summ = round(summ,1))
 
 
 
